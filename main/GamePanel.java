@@ -6,15 +6,15 @@ import tile.TileManager;
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
-    //SCREEN SETTINGS
-    final int originalTileSize = 16;                    //16x16 tile
+    // SCREEN SETTINGS
+    final int originalTileSize = 16; // 16x16 tile
     final int scaler = 3;
 
-    public int tileSize = originalTileSize * scaler; //48 per tile size
+    public int tileSize = originalTileSize * scaler; // 48 per tile size
     public int maxScreenCol = 16;
     public int maxScreenRow = 12;
-    public int screenWidth = tileSize * maxScreenCol;    //768 pixels
-    public int screenHeight = tileSize * maxScreenRow;   //576 pixels
+    public int screenWidth = tileSize * maxScreenCol; // 768 pixels
+    public int screenHeight = tileSize * maxScreenRow; // 576 pixels
 
     // WORLD SETTINGS
     public final int maxWorldCol = 50;
@@ -22,14 +22,14 @@ public class GamePanel extends JPanel implements Runnable {
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeight = tileSize * maxWorldRow;
 
-    //GAME SETTINGS
+    // GAME SETTINGS
     TileManager tileM = new TileManager(this);
     Thread gameThread;
     KeyHandler keyH = new KeyHandler(this);
     public Player player = new Player(this, keyH);
     int FPS = 60;
 
-    //COLLISION CHECKER
+    // COLLISION CHECKER
     public CollisionChecker col_Checker = new CollisionChecker(this);
 
     // Constructor Classes
@@ -42,13 +42,13 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     // if option is 1, zoom in, if option -1 zoom out
-    public void zoomInOut(int option){
+    public void zoomInOut(int option) {
         int oldWorldWidth = tileSize * maxWorldCol;
         tileSize += option;
         int newWorldWidth = tileSize * maxWorldCol;
 
-        double multiplier = (double)newWorldWidth/oldWorldWidth;
-        player.speed = (double)newWorldWidth/600;
+        double multiplier = (double) newWorldWidth / oldWorldWidth;
+        player.speed = (double) newWorldWidth / 600;
 
         double newPlayerWorldX = player.worldX * multiplier;
         double newPlayerWorldY = player.worldY * multiplier;
@@ -57,23 +57,23 @@ public class GamePanel extends JPanel implements Runnable {
         player.worldY = newPlayerWorldY;
     }
 
-    public void startGameThread(){
+    public void startGameThread() {
         gameThread = new Thread(this);
         gameThread.start();
     }
 
     public void run() {
-        double drawInterval = 1000000000/FPS;
+        double drawInterval = 1000000000 / FPS;
         double delta = 0;
         long lastTime = System.nanoTime();
         long currentTime;
 
-        while(gameThread != null) {
+        while (gameThread != null) {
             currentTime = System.nanoTime();
-            delta += (currentTime - lastTime)/drawInterval;
+            delta += (currentTime - lastTime) / drawInterval;
             lastTime = currentTime;
 
-            if(delta >= 1) {
+            if (delta >= 1) {
                 update();
                 repaint();
                 delta--;
@@ -87,9 +87,9 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     // repaints game panel
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D)g;
+        Graphics2D g2 = (Graphics2D) g;
 
         tileM.draw(g2);
         player.draw(g2);

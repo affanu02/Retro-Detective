@@ -3,7 +3,7 @@ package main;
 import javax.swing.JFrame;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(true);
@@ -17,7 +17,7 @@ public class Main {
         window.pack();
         window.setLocationRelativeTo(null);
         window.setVisible(true);
-        
+
         // game loop starts
         gamePanel.startGameThread();
     }

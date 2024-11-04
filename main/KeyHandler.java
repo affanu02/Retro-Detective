@@ -4,11 +4,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener {
-    
+
     public boolean upPressed, downPressed, leftPressed, rightPressed;
     GamePanel gp;
 
-    public KeyHandler(GamePanel gp){
+    public KeyHandler(GamePanel gp) {
         this.gp = gp;
     }
 
@@ -18,25 +18,25 @@ public class KeyHandler implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        int code = e.getKeyCode();  //returns number of key pressed
+        int code = e.getKeyCode(); // returns number of key pressed
 
         // check if user presses certain keys
-        if(code == KeyEvent.VK_W){
+        if (code == KeyEvent.VK_W) {
             upPressed = true;
         }
-        if(code == KeyEvent.VK_A){
+        if (code == KeyEvent.VK_A) {
             leftPressed = true;
         }
-        if(code == KeyEvent.VK_S){
+        if (code == KeyEvent.VK_S) {
             downPressed = true;
         }
-        if(code == KeyEvent.VK_D){
+        if (code == KeyEvent.VK_D) {
             rightPressed = true;
         }
-        if(code == KeyEvent.VK_UP){
+        if (code == KeyEvent.VK_UP) {
             gp.zoomInOut(1);
         }
-        if(code == KeyEvent.VK_DOWN){
+        if (code == KeyEvent.VK_DOWN) {
             gp.zoomInOut(-1);
         }
     }
@@ -46,18 +46,18 @@ public class KeyHandler implements KeyListener {
         int code = e.getKeyCode();
 
         // reset back to false after released
-        if(code == KeyEvent.VK_W){
+        if (code == KeyEvent.VK_W) {
             upPressed = false;
         }
-        if(code == KeyEvent.VK_A){
+        if (code == KeyEvent.VK_A) {
             leftPressed = false;
         }
-        if(code == KeyEvent.VK_S){
+        if (code == KeyEvent.VK_S) {
             downPressed = false;
         }
-        if(code == KeyEvent.VK_D){
+        if (code == KeyEvent.VK_D) {
             rightPressed = false;
         }
     }
-    
+
 }
