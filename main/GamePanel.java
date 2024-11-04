@@ -29,6 +29,9 @@ public class GamePanel extends JPanel implements Runnable {
     public Player player = new Player(this, keyH);
     int FPS = 60;
 
+    //COLLISION CHECKER
+    public CollisionChecker col_Checker = new CollisionChecker(this);
+
     // Constructor Classes
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -94,32 +97,3 @@ public class GamePanel extends JPanel implements Runnable {
         g2.dispose();
     }
 }
-
-
-
-/*
-    @Override
-    public void run() {
-        long drawInterval = 1000000000/FPS;
-        double nextDrawTime = System.nanoTime() + drawInterval;
-
-        while(gameThread != null){
-            update();
-            repaint();
-
-            try {
-                double remainingTime = nextDrawTime - System.nanoTime();
-                remainingTime = remainingTime/1000000;
-
-                if(remainingTime < 0) {
-                    remainingTime = 0;
-                }
-
-                Thread.sleep((long) remainingTime);
-
-                nextDrawTime += drawInterval;
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }*/
