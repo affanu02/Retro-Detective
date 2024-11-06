@@ -26,28 +26,54 @@ public class TileManager {
 
     public void getTileImage() {
         try {
-
+            // default five
             tiles[0] = new Tile();
-            tiles[0].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/grass.png"));
-
+            tiles[0].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/grass-1.png"));
             tiles[1] = new Tile();
             tiles[1].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/wall.png"));
             tiles[1].collision = true;
-
             tiles[2] = new Tile();
             tiles[2].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/water.png"));
             tiles[2].collision = true;
-
             tiles[3] = new Tile();
-            tiles[3].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earth2.png"));
-
+            tiles[3].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earth.png"));
             tiles[4] = new Tile();
             tiles[4].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/tree.png"));
             tiles[4].collision = true;
-
             tiles[5] = new Tile();
             tiles[5].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand.png"));
 
+            /* Secondary tiles */
+            tiles[6] = new Tile();
+            tiles[6].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/grass-2.png"));
+
+            // Sand with grass borders Numbers
+            /*
+             * tiles[6] = new Tile();
+             * tiles[6].image =
+             * ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand-grass-b.png"));
+             * tiles[7] = new Tile();
+             * tiles[7].image =
+             * ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand-grass-br.png"));
+             * tiles[8] = new Tile();
+             * tiles[8].image =
+             * ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand-grass-l.png"));
+             * tiles[9] = new Tile();
+             * tiles[9].image =
+             * ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand-grass-lb.png"));
+             * tiles[10] = new Tile();
+             * tiles[10].image =
+             * ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand-grass-r.png"));
+             * tiles[11] = new Tile();
+             * tiles[11].image =
+             * ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand-grass-rt.png"));
+             * tiles[12] = new Tile();
+             * tiles[12].image =
+             * ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand-grass-t.png"));
+             * tiles[13] = new Tile();
+             * tiles[13].image =
+             * ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand-grass-tl.png"));
+             */
         } catch (Exception e) {
             e.printStackTrace();
         }
