@@ -13,7 +13,7 @@ public class TileManager {
     public Tile[] tiles;
     public int mapTileNum[][];
 
-    // Costructor
+    // Costructor and default map loader
     public TileManager(GamePanel gp) {
         this.gp = gp;
 
@@ -21,14 +21,14 @@ public class TileManager {
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
-        loadMap("/res/maps/demomap1.txt");
+        loadMap("/res/maps/demomap2.txt");
     }
 
     public void getTileImage() {
         try {
             // default five
             tiles[0] = new Tile();
-            tiles[0].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/grass-1.png"));
+            tiles[0].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/grass.png"));
             tiles[1] = new Tile();
             tiles[1].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/wall.png"));
             tiles[1].collision = true;
@@ -45,7 +45,11 @@ public class TileManager {
 
             /* Secondary tiles */
             tiles[6] = new Tile();
-            tiles[6].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/grass-2.png"));
+            tiles[6].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/grass-1.png"));
+            tiles[7] = new Tile();
+            tiles[7].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/wall-1.png"));
+            tiles[8] = new Tile();
+            tiles[8].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/tree-1.png"));
 
             // Sand with grass borders Numbers
             /*
