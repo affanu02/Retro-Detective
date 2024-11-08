@@ -59,34 +59,6 @@ public class TileManager {
             tiles[8] = new Tile();
             tiles[8].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/tree-1.png"));
             tiles[8].collision = true;
-
-            // Sand with grass borders Numbers
-            /*
-             * tiles[6] = new Tile();
-             * tiles[6].image =
-             * ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand-grass-b.png"));
-             * tiles[7] = new Tile();
-             * tiles[7].image =
-             * ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand-grass-br.png"));
-             * tiles[8] = new Tile();
-             * tiles[8].image =
-             * ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand-grass-l.png"));
-             * tiles[9] = new Tile();
-             * tiles[9].image =
-             * ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand-grass-lb.png"));
-             * tiles[10] = new Tile();
-             * tiles[10].image =
-             * ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand-grass-r.png"));
-             * tiles[11] = new Tile();
-             * tiles[11].image =
-             * ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand-grass-rt.png"));
-             * tiles[12] = new Tile();
-             * tiles[12].image =
-             * ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand-grass-t.png"));
-             * tiles[13] = new Tile();
-             * tiles[13].image =
-             * ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand-grass-tl.png"));
-             */
         } catch (Exception e) {
             e.printStackTrace();
         }

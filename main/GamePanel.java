@@ -54,11 +54,23 @@ public class GamePanel extends JPanel implements Runnable {
         double multiplier = (double) newWorldWidth / oldWorldWidth;
         player.speed = (double) newWorldWidth / 600;
 
+        // updates new player coordinates X and Y
         double newPlayerWorldX = player.worldX * multiplier;
         double newPlayerWorldY = player.worldY * multiplier;
-
         player.worldX = newPlayerWorldX;
         player.worldY = newPlayerWorldY;
+
+        // updates all object coordinates X and Y
+        for (int i = 0; i < obj.length; i++) {
+            if (obj[i] != null) {
+                double newobjWorldX = obj[i].worldX * multiplier;
+                double newobjWorldY = obj[i].worldY * multiplier;
+                obj[i].worldX = (int) newobjWorldX;
+                obj[i].worldY = (int) newobjWorldY;
+            }
+        }
+
+        col_Checker = new CollisionChecker(this);
     }
 
     // draws and sets objects
