@@ -29,27 +29,36 @@ public class TileManager {
             // default five
             tiles[0] = new Tile();
             tiles[0].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/grass.png"));
+
             tiles[1] = new Tile();
             tiles[1].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/wall.png"));
             tiles[1].collision = true;
+
             tiles[2] = new Tile();
             tiles[2].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/water.png"));
             tiles[2].collision = true;
+
             tiles[3] = new Tile();
             tiles[3].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earth.png"));
+
             tiles[4] = new Tile();
             tiles[4].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/tree.png"));
             tiles[4].collision = true;
+
             tiles[5] = new Tile();
             tiles[5].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand.png"));
 
             /* Secondary tiles */
             tiles[6] = new Tile();
             tiles[6].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/grass-1.png"));
+
             tiles[7] = new Tile();
             tiles[7].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/wall-1.png"));
+            tiles[7].collision = true;
+
             tiles[8] = new Tile();
             tiles[8].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/tree-1.png"));
+            tiles[8].collision = true;
 
             // Sand with grass borders Numbers
             /*
