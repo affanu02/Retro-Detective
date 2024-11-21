@@ -11,6 +11,14 @@ public class AssetSetter {
         this.gp = gp;
     }
 
+    /**
+     * Sets all the objects on the map using X and why coordinates according to what
+     * map is chosen.
+     * 
+     * @param mapName
+     * @return NULL
+     * @throws
+     */
     public void setObject() {
         // Keys home map
         gp.obj[0] = new OBJ_Key();

@@ -4,19 +4,24 @@ import main.GamePanel;
 import javax.imageio.ImageIO;
 import java.awt.Graphics2D;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class TileManager {
     GamePanel gp;
-
     public Tile[] tiles;
     public int mapTileNum[][];
 
-    // Costructor and default map loader
+    /**
+     * Pulls images of tiles and addes to tiles[] array.
+     * 
+     * @param GamePanel
+     */
     public TileManager(GamePanel gp) {
         this.gp = gp;
 
+        // Arrays for tile managements and count
         tiles = new Tile[10];
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
@@ -24,12 +29,20 @@ public class TileManager {
         loadMap("/res/maps/demomap2.txt");
     }
 
+    /**
+     * Pulls images of tiles and addes to tiles[] array.
+     * 
+     * @param tiles[]
+     * @throws IOException          if an error occurs while reading the image files
+     * @throws NullPointerException if the resource path is incorrect or the file is
+     *                              not found
+     */
     public void getTileImage() {
         try {
             // default five
             tiles[0] = new Tile();
             tiles[0].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/grass.png"));
-
+  
             tiles[1] = new Tile();
             tiles[1].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/wall.png"));
             tiles[1].collision = true;
@@ -59,11 +72,22 @@ public class TileManager {
             tiles[8] = new Tile();
             tiles[8].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/tree-1.png"));
             tiles[8].collision = true;
+
+            tiles[9] = new Tile();
+            tiles[9].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/rock.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Loads in the integer information in the map and creates a doube arrau
+     * 
+     * @param mapAddress map address in files
+     * @throws IOException           if an error occurs while reading the map file
+     * @throws NullPointerException  if the specified map file is not found
+     * @throws NumberFormatException if the map file contains invalid numbers
+     */
     public void loadMap(String mapAddress) {
         try {
             InputStream is = getClass().getResourceAsStream(mapAddress);
@@ -92,10 +116,15 @@ public class TileManager {
 
             br.close();
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
+    /**
+     * Draws images according to the inputstreamed integer map loaded.
+     * 
+     * @param Graphics2D Graphics variable
+     */
     public void draw(Graphics2D g2) {
         int worldCol = 0, worldRow = 0;
 
