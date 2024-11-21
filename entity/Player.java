@@ -11,9 +11,9 @@ import java.awt.image.BufferedImage;
 public class Player extends Entity {
     GamePanel gp;
     KeyHandler keyH;
-
     public final int screenX;
     public final int screenY;
+    int hasKey = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
@@ -79,6 +79,7 @@ public class Player extends Entity {
 
             // checks for object collisions
             int objIndex = gp.col_Checker.checkObject(this, true);
+            pickUpObject(objIndex);
 
             // If collisionON is FALSE, player can move
             if (!collisionON) {
@@ -114,6 +115,36 @@ public class Player extends Entity {
                     spriteNum = 1;
                 }
                 spriteCounter = 0;
+            }
+        }
+    }
+
+    public void pickUpObject(int index) {
+        if (index != 999) {
+            String objectName = gp.obj[index].name;
+
+            switch (objectName) {
+                case "Key":
+                    // add key count and make key disappear
+                    hasKey++;
+                    gp.obj[index] = null;
+                    break;
+                case "Door":
+                    // check if player has a key to open the door
+                    if (hasKey > 0) {
+                        gp.obj[index] = null;
+                        hasKey--;
+                    }
+                    break;
+                case "Chest":
+                    // check if player has a key to open the chest
+                    if (hasKey > 0) {
+                        gp.obj[index] = null;
+                        hasKey--;
+                    }
+                    break;
+                default:
+                    break;
             }
         }
     }
