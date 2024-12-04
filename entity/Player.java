@@ -143,6 +143,10 @@ public class Player extends Entity {
                         hasKey--;
                     }
                     break;
+                case "Boots":
+                    speed += 2;
+                    gp.obj[index] = null;
+                    break;
                 default:
                     break;
             }
