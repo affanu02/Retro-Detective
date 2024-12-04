@@ -29,6 +29,9 @@ public class GamePanel extends JPanel implements Runnable {
     KeyHandler keyH = new KeyHandler(this);
     public Player player = new Player(this, keyH);
 
+    // SOUND SETTINGS
+    Sound sound = new Sound();
+
     // OBJECT SETTINGS
     public AssetSetter aSetter = new AssetSetter(this);
     public SuperObject obj[] = new SuperObject[10];
@@ -121,5 +124,21 @@ public class GamePanel extends JPanel implements Runnable {
         player.draw(g2);
 
         g2.dispose();
+    }
+
+    // plays music
+    public void playMusic(int i) {
+        sound.setFile(i);
+        sound.play();
+        sound.loop();
+    }
+
+    public void StopMusic() {
+        sound.stop();
+    }
+
+    public void playSE(int i) {
+        sound.setFile(i);
+        sound.play();
     }
 }
