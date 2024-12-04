@@ -126,12 +126,14 @@ public class Player extends Entity {
             switch (objectName) {
                 case "Key":
                     // add key count and make key disappear
+                    gp.playSE(1);
                     hasKey++;
                     gp.obj[index] = null;
                     break;
                 case "Door":
                     // check if player has a key to open the door
                     if (hasKey > 0) {
+                        gp.playSE(3);
                         gp.obj[index] = null;
                         hasKey--;
                     }
@@ -139,11 +141,13 @@ public class Player extends Entity {
                 case "Chest":
                     // check if player has a key to open the chest
                     if (hasKey > 0) {
+                        gp.playSE(3);
                         gp.obj[index] = null;
                         hasKey--;
                     }
                     break;
                 case "Boots":
+                    gp.playSE(2);
                     speed += 2;
                     gp.obj[index] = null;
                     break;
