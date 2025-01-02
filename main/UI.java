@@ -36,6 +36,6 @@ public class UI {
     public void draw(Graphics2D g2) {
         g2.setFont(silkscreen);
         g2.setColor(Color.white);
-        g2.drawString("Key = " + gp.player.hasKey, 30, 50);
+        g2.drawString("Key = " + gp.player.hasKey, 10, 40);
     }
 }
