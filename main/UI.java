@@ -15,6 +15,8 @@ public class UI {
     GamePanel gp;
     Font silkscreen;
     BufferedImage keyImage;
+    public boolean messageOn = false;
+    public String message = "";
 
     // constructor
     public UI(GamePanel gp) {
@@ -44,10 +46,21 @@ public class UI {
         }
     }
 
+    public void showMessage(String text) {
+        message = text;
+        messageOn = true;
+    }
+
     public void draw(Graphics2D g2) {
         g2.setFont(silkscreen);
         g2.setColor(Color.white);
         g2.drawImage(keyImage, (gp.tileSize / 2) - 10, (gp.tileSize / 2) - 14, gp.tileSize, gp.tileSize, null);
         g2.drawString("x" + gp.player.hasKey, 55, 55);
+
+        // Message notifications
+        if (messageOn) {
+            g2.setFont(g2.getFont().deriveFont(20F));
+            g2.drawString(message, 150, 45);
+        }
     }
 }

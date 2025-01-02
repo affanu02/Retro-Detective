@@ -129,6 +129,7 @@ public class Player extends Entity {
                     gp.playSE(1);
                     hasKey++;
                     gp.obj[index] = null;
+                    gp.ui.showMessage("I found a key! Hmm what does it unlock...?");
                     break;
                 case "Door":
                     // check if player has a key to open the door
