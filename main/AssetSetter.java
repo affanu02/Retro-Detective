@@ -44,10 +44,5 @@ public class AssetSetter {
         gp.obj[5] = new OBJ_Boots();
         gp.obj[5].worldX = 37 * gp.tileSize;
         gp.obj[5].worldY = 42 * gp.tileSize;
-
-        // temp key for testing
-        gp.obj[6] = new OBJ_Key();
-        gp.obj[6].worldX = 23 * gp.tileSize;
-        gp.obj[6].worldY = 8 * gp.tileSize;
     }
 }
