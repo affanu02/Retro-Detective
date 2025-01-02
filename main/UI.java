@@ -12,11 +12,13 @@ import object.OBJ_Key;
 
 /* Handles all on screen UI */
 public class UI {
+    // variables
     GamePanel gp;
     Font silkscreen;
     BufferedImage keyImage;
     public boolean messageOn = false;
     public String message = "";
+    int messageCounter = 0;
 
     // constructor
     public UI(GamePanel gp) {
@@ -61,6 +63,12 @@ public class UI {
         if (messageOn) {
             g2.setFont(g2.getFont().deriveFont(20F));
             g2.drawString(message, 150, 45);
+            messageCounter++;
+
+            if (messageCounter > 120) {
+                messageCounter = 0;
+                messageOn = false;
+            }
         }
     }
 }

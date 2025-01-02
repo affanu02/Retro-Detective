@@ -137,6 +137,9 @@ public class Player extends Entity {
                         gp.playSE(3);
                         gp.obj[index] = null;
                         hasKey--;
+                        gp.ui.showMessage("Door unlocked! The mystery deepens...");
+                    } else {
+                        gp.ui.showMessage("The door is locked. I got to find a key...");
                     }
                     break;
                 case "Chest":
@@ -145,12 +148,17 @@ public class Player extends Entity {
                         gp.playSE(3);
                         gp.obj[index] = null;
                         hasKey--;
+                        gp.ui.showMessage("Chest opened! Lets see what's inside...");
+                    } else {
+
+                        gp.ui.showMessage("The chest is locked. The key should be around...");
                     }
                     break;
                 case "Boots":
                     gp.playSE(2);
                     speed += 2;
                     gp.obj[index] = null;
+                    gp.ui.showMessage("Shiny shoes! These make me run faster!");
                     break;
                 default:
                     break;

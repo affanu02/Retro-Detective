@@ -42,7 +42,7 @@ public class TileManager {
             // default five
             tiles[0] = new Tile();
             tiles[0].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/grass.png"));
-  
+
             tiles[1] = new Tile();
             tiles[1].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/wall.png"));
             tiles[1].collision = true;
@@ -75,6 +75,7 @@ public class TileManager {
 
             tiles[9] = new Tile();
             tiles[9].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/rock.png"));
+            tiles[9].collision = true;
         } catch (Exception e) {
             e.printStackTrace();
         }
