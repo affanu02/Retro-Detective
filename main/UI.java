@@ -19,6 +19,7 @@ public class UI {
     public boolean messageOn = false;
     public String message = "";
     int messageCounter = 0;
+    public boolean gameFinished = false;
 
     // constructor
     public UI(GamePanel gp) {
@@ -54,6 +55,28 @@ public class UI {
     }
 
     public void draw(Graphics2D g2) {
+        // level/game finished notifications
+        if (gameFinished) {
+            g2.setFont(silkscreen);
+            g2.setColor(Color.white);
+
+            String text = "Level Complete!";
+            int textLength = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+            int x = gp.screenWidth / 2 - textLength / 2;
+            int y = gp.screenWidth / 2;
+            g2.drawString(text, x, y);
+
+            g2.setColor(Color.yellow);
+            g2.setFont(g2.getFont().deriveFont(50F));
+            text = "Congratulations!";
+            textLength = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+            x = gp.screenWidth / 2 - textLength / 2;
+            y = gp.screenWidth / 2 - (gp.tileSize * 3);
+            g2.drawString(text, x, y);
+
+            gp.gameThread = null;
+        }
+
         g2.setFont(silkscreen);
         g2.setColor(Color.white);
         g2.drawImage(keyImage, (gp.tileSize / 2) - 10, (gp.tileSize / 2) - 14, gp.tileSize, gp.tileSize, null);

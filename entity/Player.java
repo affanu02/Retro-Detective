@@ -149,8 +149,10 @@ public class Player extends Entity {
                         gp.obj[index] = null;
                         hasKey--;
                         gp.ui.showMessage("Chest opened! Lets see what's inside...");
+                        gp.ui.gameFinished = true;
+                        gp.StopMusic();
+                        gp.playSE(4);
                     } else {
-
                         gp.ui.showMessage("The chest is locked. The key should be around...");
                     }
                     break;
