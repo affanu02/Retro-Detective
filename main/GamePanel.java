@@ -28,6 +28,7 @@ public class GamePanel extends JPanel implements Runnable {
     Thread gameThread;
     KeyHandler keyH = new KeyHandler(this);
     public Player player = new Player(this, keyH);
+    public UI ui = new UI(this);
 
     // SOUND SETTINGS
     Sound sound = new Sound();
@@ -123,7 +124,12 @@ public class GamePanel extends JPanel implements Runnable {
                 obj[i].draw(g2, this);
             }
         }
+
+        // player drawing
         player.draw(g2);
+
+        // ui drawing
+        ui.draw(g2);
 
         g2.dispose();
     }
